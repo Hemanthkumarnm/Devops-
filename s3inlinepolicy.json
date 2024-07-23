@@ -2,22 +2,18 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "uploadlogs",
             "Effect": "Allow",
-            "Principal": {
-                "Service": "logs.us-east-1.amazonaws.com"
-            },
-            "Action": "s3:GetBucketAcl",
-            "Resource": "arn:aws:s3:::logexportbucketdemo"
-        },
-        {
-            "Sid": "uploadlogs",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "logs.us-east-1.amazonaws.com"
-            },
-            "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::logexportbucketdemo/*"
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetBucketAcl",
+                "s3:PutObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::reachx-dev-public",
+                "arn:aws:s3:::reachx-dev-public/*"
+            ]
         }
     ]
 }
